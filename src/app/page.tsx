@@ -1,3 +1,10 @@
+import {SidebarProvider} from "@/components/ui/sidebar";
+import {ProductionPlanner} from "@/components/production-planner";
+
 export default function Home() {
-  return <></>;
+  return (
+    <SidebarProvider>
+      <ProductionPlanner/>
+    </SidebarProvider>
+  );
 }
