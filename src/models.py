@@ -108,6 +108,7 @@ user_workshop_association = Table(
     Base.metadata,
     Column("user_id", Integer, ForeignKey("users.id"), primary_key=True),
     Column("workshop_id", Integer, ForeignKey("workshop.id"), primary_key=True)
+    ,extend_existing=True
 )
 
 task_responsible_association = Table(
@@ -115,18 +116,23 @@ task_responsible_association = Table(
     Base.metadata,
     Column("task_id", Integer, ForeignKey("task.id"), primary_key=True),
     Column("user_id", Integer, ForeignKey("users.id"), primary_key=True)
-)
+    ,extend_existing=True)
 
 comment_user_association = Table(
     "comment_user_association",
     Base.metadata,
     Column("comment_id", Integer, ForeignKey("comment.id"), primary_key=True),
-    Column("user_id", Integer, ForeignKey("users.id"), primary_key=True)
+    Column("user_id", Integer, ForeignKey("users.id"), primary_key=True),
+    extend_existing=True
 )
+
+from sqlalchemy.ext.declarative import declared_attr
 
 # Users Table
 class User(Base):
-    __tablename__ = "users"
+    @declared_attr
+    def __tablename__(cls):
+        return "users"
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String(50), nullable=False)
     firstname = Column(String(50), nullable=True)
