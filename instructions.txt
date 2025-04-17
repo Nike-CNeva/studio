@@ -1,0 +1,8 @@
+To add the generated files to your VS Code project, follow these steps:
+
+1.  Open your project in VS Code.
+2.  In the Explorer view (Ctrl+Shift+E), navigate to the appropriate directory where the new files should be placed.
+3.  Copy the content of each generated file into a new file with the corresponding name and extension in the VS Code Explorer.
+4.  Save the changes.
+
+Now the generated files should be visible and accessible in your VS Code project.
